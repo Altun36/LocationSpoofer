@@ -26,8 +26,7 @@ jobs:
         uses: android-actions/setup-android@v4
 
       - name: Install required Android SDK components
-        run: sdkmanager 'platforms;android-37' 'build-tools;36.0.0' 'platform-tools'
-
+        run: sdkmanager 'platforms;android-37.0' 'build-tools;36.0.0' 'platform-tools' && ln -sfn android-37.0 "$ANDROID_SDK_ROOT/platforms/android-37"
       - name: Build scoped debug APK (without release signing key)
         run: |
           chmod +x ./gradlew
